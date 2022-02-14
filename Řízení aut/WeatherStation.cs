@@ -8,7 +8,11 @@ namespace Řízení_aut
 {
     public class WeatherStation
     {
-        public Random r = new Random();
-        public int Weather = r.Next(0, 4);
+        public int WeatherGenerator()
+        {
+            Random r = new Random();
+            return r.Next(0, 4);
+        }
     }
+
 }
