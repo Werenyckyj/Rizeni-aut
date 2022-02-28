@@ -7,11 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="lb_speed" Content="Rychlost: x km/h" HorizontalAlignment="Left" Margin="304,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_distance" Content="Vzdálenost: x km" HorizontalAlignment="Left" Margin="420,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,0"/>
-        <Label x:Name="lb_condition" Content="Stav: x" HorizontalAlignment="Left" Margin="540,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_weather" Content="Počasí: x" HorizontalAlignment="Left" Margin="665,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_road" Content="Label" HorizontalAlignment="Left" Margin="380,205,0,0" VerticalAlignment="Top" FontSize="30" Height="48" Width="259"/>
 
+        <Label x:Name="lb_weather" Content="Počasí: x" HorizontalAlignment="Left" Margin="141,309,0,0" VerticalAlignment="Top" Height="8" Width="15" RenderTransformOrigin="0.5,0.5"/>
+
+
+        <Label x:Name="lb_carslist" Content="Seznam aut:" FontSize="15" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="lv_cars"  HorizontalAlignment="Left" Height="200" Margin="30,55,0,0" VerticalAlignment="Top" Width="140"/>
+        <Frame Content="Počasí" Background="Gray" HorizontalAlignment="Left" Height="90" Margin="30,272,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label x:Name="lb_speed" Content="Rychlost: x km/h" FontSize="15" HorizontalAlignment="Left" Margin="250,67,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_distance" Content="Vzdálenost: x km" FontSize="15" HorizontalAlignment="Left" Margin="374,67,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_condition" Content="Stav: neznámý" FontSize="15" HorizontalAlignment="Left" Margin="501,67,0,0" VerticalAlignment="Top" Width="199"/>
+        <Image x:Name="img2"  HorizontalAlignment="Left" Height="200" Margin="250,102,0,0" VerticalAlignment="Top" Width="150" Source="20211013_192012.jpg"/>
+        <Image x:Name="img1"  HorizontalAlignment="Left" Height="200" Margin="400,102,0,0" VerticalAlignment="Top" Width="150" Source="20211013_192012.jpg"/>
+        <Image x:Name="img0"  HorizontalAlignment="Left" Height="200" Margin="550,102,0,0" VerticalAlignment="Top" Width="150" Source="20211013_192012.jpg"/>
     </Grid>
 </Window>

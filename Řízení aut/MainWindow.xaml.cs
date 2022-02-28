@@ -23,26 +23,15 @@ namespace Řízení_aut
         public MainWindow()
         {
             InitializeComponent();
-            AutonomousCar c = new AutonomousCar();
-            lb_speed.Content = $"Rychlost: {c.Speed.ToString()} km/h";
-            string con = string.Empty;
-            switch (c.Condition)
-            {
-                case 0: con = "V pořádku"; break;
-                case 1: con = "Porucha světel"; break;
-                case 2: con = "Porucha motoru"; break;
-            }
-            lb_distance.Content = $"Vzdálenost: {c.Distance} km";
-            lb_condition.Content = $"Stav: {con}";
-            lb_weather.Content = $"Počasí: {c.Weather}";
-            string road = string.Empty;
-            switch (c.Road)
-            {
-                case 48: road = "Silnice"; break;
-                case 1: road = "Tunel"; break;
-                case 2: road = "Most"; break;
-            }
-            lb_road.Content = road;
+            AutonomousCar a = new AutonomousCar(0);
+            a.InitCars();
+            lv_cars.ItemsSource = AutonomousCar.cars;
+        }
+
+        private void lv_cars_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ControlStation cs = new ControlStation();
+            cs.FullInfo(lv_cars ,lb_speed, lb_distance, lb_condition, lb_weather, img0, img1, img2);
         }
     }
 }

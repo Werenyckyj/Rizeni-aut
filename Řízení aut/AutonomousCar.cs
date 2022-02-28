@@ -9,92 +9,76 @@ namespace Řízení_aut
     public class AutonomousCar
     {
         public Random r = new Random();
+        public int ID { get; set; }
         public double Speed { get; set; }
         public double PositionX { get; set; }
         public double PositionY { get; set; }
         public int Condition  { get; set; }
         public bool Lights { get; set; }
-        public string Route { get; set; }
+        public int Road { get; set; }
         public int Distance { get; set; }
         public string Weather { get; set; }
-        public int Road { get; set; }
-        public AutonomousCar()
+        public AutonomousCar(int id)
         {
+            ID = id;
             WeatherStation station = new WeatherStation();
+            ControlStation controlStation = new ControlStation();
             Distance = r.Next(20,50);
-            RouteGenerator();
+            RoadGenerator();
             PositionGenerator();
-            for (int i = 0; i < 10; i++)
+            InitCars();
+
+            int i = controlStation.i;
+            Distance -= 1;
+            Speed = 90;
+            Lights = false;
+            if (Road == 2)
             {
-                char route;
-                route = Route[i];
-                Road = Convert.ToInt32(route);
-                Distance -= 1;
-                Speed = 90;
-                Lights = false;
-                if (Route[i]==2)
+                int x = station.WeatherGenerator();
+                switch (x)
                 {
-                    int x = station.WeatherGenerator();
-                    switch (x)
-                    {
-                        case 0: Weather = "Slunečno"; break;
-                        case 1: Speed = 70; Weather = "Déšť"; break;
-                        case 2: Speed = 85; Weather = "Zataženo"; break;
-                        case 3: Speed = 60; Weather = "Mlhavo"; break;
-                        case 4: Speed = 30; Weather = "Sníh"; break;
-                    }
+                    case 0: Weather = "Slunečno"; break;
+                    case 1: Speed = 70; Weather = "Déšť"; break;
+                    case 2: Speed = 85; Weather = "Zataženo"; break;
+                    case 3: Speed = 60; Weather = "Mlhavo"; break;
+                    case 4: Speed = 30; Weather = "Sníh"; break;
                 }
-                else if (Route[i] == 1)
-                {
-                    Lights = true;
-                }
+            }
+            else if (Road == 1)
+            {
+                Lights = true;
+            }
 
-                if (X() == 0)
-                {
-                    Condition = 0;
-                }
-                else if (X() == 1)
-                {
-                    Condition = 1;
-                }
-                else
-                {
-                    Condition = 2;
-                }
-
-                if (Distance==0)
-                {
-                    break;
-                }
-
-                if (i==9)
-                {
-                    RouteGenerator();
-                    i = 0;
-                }
+            if (X() == 0)
+            {
+                Condition = 0;
+            }
+            else if (X() == 1)
+            {
+                Condition = 1;
+            }
+            else
+            {
+                Condition = 2;
             }
         }
-        public void RouteGenerator()
+        public void RoadGenerator()
         {
-            string s = "0";
-            while (s.Length < 10)
+            int j;
+            int i = r.Next(0, 9);
+            if (i < 5)
             {
-                int i = r.Next(0, 9);
-                if (i<5)
-                {
-                    s += 0;
-                }
-                else if (i<7)
-                {
-                    s += 1;
-                }
-                else
-                {
-                    s += 2;
-                }
-                
+                j = 0;
             }
-            Route = s;
+            else if (i < 7)
+            {
+                j = 1;
+            }
+            else
+            {
+                j = 2;
+            }
+            Road = j;
         }
         public void PositionGenerator()
         {
@@ -118,6 +102,16 @@ namespace Řízení_aut
                 x = 2;
             }
             return x;
+        }
+
+        public static List<AutonomousCar> cars = new List<AutonomousCar>();
+        public void InitCars()
+        {
+            for (int ID = 0; ID < 5; ID++)
+            {
+                AutonomousCar c0 = new AutonomousCar(ID);
+                cars.Add(c0);
+            }         
         }
     }
 }

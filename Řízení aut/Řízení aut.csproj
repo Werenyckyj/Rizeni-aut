@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ControlStation.cs" />
     <Compile Include="WeatherStation.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +96,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="20211013_192012.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG_607fcfa326da5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG_607fcfa326da5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
