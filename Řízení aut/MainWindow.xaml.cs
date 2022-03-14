@@ -23,9 +23,9 @@ namespace Řízení_aut
         public MainWindow()
         {
             InitializeComponent();
-            AutonomousCar a = new AutonomousCar(0);
-            a.InitCars();
-            lv_cars.ItemsSource = AutonomousCar.cars;
+            ControlStation cs = new ControlStation();
+            cs.InitCars();
+            lv_cars.ItemsSource = ControlStation.cars;
         }
 
         private void lv_cars_SelectionChanged(object sender, SelectionChangedEventArgs e)

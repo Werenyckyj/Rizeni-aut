@@ -12,13 +12,13 @@
 
 
         <Label x:Name="lb_carslist" Content="Seznam aut:" FontSize="15" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="lv_cars"  HorizontalAlignment="Left" Height="200" Margin="30,55,0,0" VerticalAlignment="Top" Width="140"/>
+        <ListView x:Name="lv_cars"  HorizontalAlignment="Left" Height="200" Margin="30,55,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="lv_cars_SelectionChanged"/>
         <Frame Content="Počasí" Background="Gray" HorizontalAlignment="Left" Height="90" Margin="30,272,0,0" VerticalAlignment="Top" Width="140"/>
         <Label x:Name="lb_speed" Content="Rychlost: x km/h" FontSize="15" HorizontalAlignment="Left" Margin="250,67,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lb_distance" Content="Vzdálenost: x km" FontSize="15" HorizontalAlignment="Left" Margin="374,67,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lb_condition" Content="Stav: neznámý" FontSize="15" HorizontalAlignment="Left" Margin="501,67,0,0" VerticalAlignment="Top" Width="199"/>
-        <Image x:Name="img2"  HorizontalAlignment="Left" Height="200" Margin="250,102,0,0" VerticalAlignment="Top" Width="150" Source="20211013_192012.jpg"/>
-        <Image x:Name="img1"  HorizontalAlignment="Left" Height="200" Margin="400,102,0,0" VerticalAlignment="Top" Width="150" Source="20211013_192012.jpg"/>
-        <Image x:Name="img0"  HorizontalAlignment="Left" Height="200" Margin="550,102,0,0" VerticalAlignment="Top" Width="150" Source="20211013_192012.jpg"/>
+        <Image x:Name="img2"  HorizontalAlignment="Left" Height="200" Margin="250,102,0,0" VerticalAlignment="Top" Width="150" Stretch="Fill"/>
+        <Image x:Name="img1"  HorizontalAlignment="Left" Height="200" Margin="400,102,0,0" VerticalAlignment="Top" Width="150" Source="Images/road.jpg" Stretch="Fill"/>
+        <Image x:Name="img0"  HorizontalAlignment="Left" Height="200" Margin="550,102,0,0" VerticalAlignment="Top" Width="150" Stretch="Fill"/>
     </Grid>
 </Window>

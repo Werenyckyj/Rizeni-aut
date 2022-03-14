@@ -21,33 +21,12 @@ namespace Řízení_aut
         public AutonomousCar(int id)
         {
             ID = id;
-            WeatherStation station = new WeatherStation();
             ControlStation controlStation = new ControlStation();
             Distance = r.Next(20,50);
             RoadGenerator();
             PositionGenerator();
-            InitCars();
 
             int i = controlStation.i;
-            Distance -= 1;
-            Speed = 90;
-            Lights = false;
-            if (Road == 2)
-            {
-                int x = station.WeatherGenerator();
-                switch (x)
-                {
-                    case 0: Weather = "Slunečno"; break;
-                    case 1: Speed = 70; Weather = "Déšť"; break;
-                    case 2: Speed = 85; Weather = "Zataženo"; break;
-                    case 3: Speed = 60; Weather = "Mlhavo"; break;
-                    case 4: Speed = 30; Weather = "Sníh"; break;
-                }
-            }
-            else if (Road == 1)
-            {
-                Lights = true;
-            }
 
             if (X() == 0)
             {
@@ -102,16 +81,6 @@ namespace Řízení_aut
                 x = 2;
             }
             return x;
-        }
-
-        public static List<AutonomousCar> cars = new List<AutonomousCar>();
-        public void InitCars()
-        {
-            for (int ID = 0; ID < 5; ID++)
-            {
-                AutonomousCar c0 = new AutonomousCar(ID);
-                cars.Add(c0);
-            }         
         }
     }
 }
